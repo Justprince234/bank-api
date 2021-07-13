@@ -11,7 +11,6 @@ from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail  
 # Create your models here.
 
-
 SEX = (
     ('M', 'Male'),
     ('F', 'Female'),
@@ -67,6 +66,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     account_number = models.CharField(default=random_account, unique=True, max_length=200)
     available_bal = models.DecimalField(default=0, max_digits=12, decimal_places=2, null=True, blank=True)
     status = models.CharField(choices=STATUS, default="Active", max_length=11, null=True, blank=True)
+    transfer_amount = models.DecimalField(default=0, max_digits=12, decimal_places=2, null=True, blank=True)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     is_admin = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)

@@ -45,6 +45,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.sex = validated_data['sex']
         user.status = validated_data.get('status')
         user.available_bal = validated_data.get('available_bal')
+        user.transfer_amount = validated_data.get('transfer_amount')
         user.set_password(validated_data['password'])
         user.save()
 
